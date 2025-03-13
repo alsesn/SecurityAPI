@@ -2,9 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Employees info</title>
 </head>
 <body>
-    <span th:text="${employees}"></span>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="employee :${employees}" th:object="${employee}">
+                <td th:text="*{id}"/>
+                <td th:text="*{firstName}"/>
+                <td th:text="*{lastName}"/>
+                <td th:text="*{email}"/>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

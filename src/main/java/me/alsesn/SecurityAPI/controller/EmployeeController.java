@@ -24,8 +24,6 @@ public class EmployeeController {
         List<Employee> employees = service.findAll();
         model.addAttribute("employees", employees);
 
-        System.out.println(employees);
-
         return "list_employees";
     }
 }
