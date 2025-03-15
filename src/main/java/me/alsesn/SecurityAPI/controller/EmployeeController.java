@@ -24,6 +24,22 @@ public class EmployeeController {
         List<Employee> employees = service.findAll();
         model.addAttribute("employees", employees);
 
-        return "list_employees";
+        return "employee_list";
+    }
+
+    @GetMapping("/form")
+    public String addNewEmployee(Model model) {
+        Employee employee = new Employee();
+
+        model.addAttribute("employee", employee);
+
+        return "employee_form";
+    }
+
+    @PostMapping("/save")
+    public String save(@ModelAttribute("employee") Employee employee) {
+        service.save(employee);
+
+        return "redirect: /api/list";
     }
 }
